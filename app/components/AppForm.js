@@ -1,18 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
   View,
   Animated,
   Dimensions,
-} from 'react-native';
+} from "react-native";
 
-import FormHeader from './FormHeader';
-import FormSelectorBtn from './FormSelectorBtn';
-import SignupForm from './SignupForm';
-import LoginForm from './LoginForm';
+import FormHeader from "./FormHeader";
+import FormSelectorBtn from "./FormSelectorBtn";
+import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get("window");
 
 export default function AppForm({ navigation }) {
   const animation = useRef(new Animated.Value(0)).current;
@@ -33,20 +33,20 @@ export default function AppForm({ navigation }) {
   });
   const loginColorInterpolate = animation.interpolate({
     inputRange: [0, width],
-    outputRange: ['rgba(27,27,51,1)', 'rgba(27,27,51,0.4)'],
+    outputRange: ["rgba(27,27,51,1)", "rgba(27,27,51,0.4)"],
   });
   const signupColorInterpolate = animation.interpolate({
     inputRange: [0, width],
-    outputRange: ['rgba(27,27,51,0.4)', 'rgba(27,27,51,1)'],
+    outputRange: ["rgba(27,27,51,0.4)", "rgba(27,27,51,1)"],
   });
 
   return (
     <View style={{ flex: 1, paddingTop: 120 }}>
       <View style={{ height: 80 }}>
         <FormHeader
-          leftHeading='Welcome '
-          rightHeading='Back'
-          subHeading='YouTube Task Manager'
+          leftHeading="Welcome "
+          rightHeading="Back"
+          subHeading="Ekrili"
           rightHeaderOpacity={rightHeaderOpacity}
           leftHeaderTranslateX={leftHeaderTranslateX}
           rightHeaderTranslateY={rightHeaderTranslateY}
@@ -54,7 +54,7 @@ export default function AppForm({ navigation }) {
       </View>
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: "row",
           paddingHorizontal: 20,
           marginBottom: 20,
         }}
@@ -62,13 +62,13 @@ export default function AppForm({ navigation }) {
         <FormSelectorBtn
           style={styles.borderLeft}
           backgroundColor={loginColorInterpolate}
-          title='Login'
+          title="Login"
           onPress={() => scrollView.current.scrollTo({ x: 0 })}
         />
         <FormSelectorBtn
           style={styles.borderRight}
           backgroundColor={signupColorInterpolate}
-          title='Sign up'
+          title="Sign up"
           onPress={() => scrollView.current.scrollTo({ x: width })}
         />
       </View>
@@ -95,9 +95,9 @@ export default function AppForm({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
   borderLeft: {
     borderTopLeftRadius: 8,
